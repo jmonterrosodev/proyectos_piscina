@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+  <meta charset="UTF-8">
+  <title>Proyectos Piscina LevelUp - Jorge Monterroso</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900'>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css'>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css'>
+</head>
+<body>
+<div id="app">
+  <v-app>
+    <v-main>
+      <v-toolbar
+        src="https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+      >
+        <v-toolbar-title class="black--text">Proyectos Piscina - Jorge Antonio Monterroso Aspuac</v-toolbar-title>
+      </v-toolbar>
+      <v-container class="justify-center" align="center">
+        <v-row cols="12" justify="center">
+          <v-col cols="6" md="3" >
+            <v-card 
+              elevation="2"
+              outlined height="250"
+              tile class="text-center justify-center"
+            >
+              <v-card-title>
+                <h2>Proyecto 1</h2>
+              </v-card-title>
+              <v-divider></v-divider>
+              <v-card-subtitle>
+                <h3>Retorno de array</h3>
+              </v-card-subtitle>
+              <v-card-text>
+                  <code class=" language-css">
+                    {{ keysValues }}
+                  </code>
+              </v-card-text>
+            </v-card>
+          </v-col>
+          <v-col cols="6" md="3" >
+            <v-card 
+              elevation="2"
+              outlined height="250"
+              tile class="text-center justify-center"
+            >
+              <v-card-title>
+                <h2>Proyecto 2</h2>
+              </v-card-title>
+              <v-card-subtitle>
+                <h3>Contador</h3>
+              </v-card-subtitle>
+              <v-card-text>
+                <h1 :class="color" style="font-size: 60px" class="contador">{{ contador }}</h1>
+              </v-card-text>
+              <v-card-actions class="justify-center">
+                <v-btn icon color="red" @click="contador --">
+                  <v-icon>mdi-minus</v-icon>
+                  </v-btn>
+                <v-btn icon color="black" @click="contador = 0">
+                  <v-icon>mdi-restart</v-icon>
+                  </v-btn>
+                <v-btn icon color="green" @click="contador ++">
+                  <v-icon>mdi-plus</v-icon>
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+          <v-col cols="6" md="3" >
+            <v-card
+          :style="estilo"
+          elevation="2"
+          outlined height="250"
+          tile class="text-center justify-center"
+        >
+          <v-card-title>
+            <h2>Proyecto 3</h2>
+          </v-card-title>
+          <v-card-subtitle>
+            <h3>Background Camaleon</h3>
+          </v-card-subtitle>
+          <v-card-text>
+            <h2 style="color: white; mix-blend-mode: difference;" >Color de Fondo: {{ background }}</h2>
+          </v-card-text>
+          <v-card-actions class="justify-center">
+            <v-btn dark color="black" @click="switchColor">
+              Cambiar color de fondo
+              <v-icon>mdi-shuffle</v-icon>
+            </v-btn>
+          </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+        <v-divider></v-divider>
+        <v-card elevation="2" outlined
+        tile class="text-center justify-center" >
+          <v-card-title>
+            <h2>Proyecto 4</h2>
+          </v-card-title>
+          <v-card-subtitle>
+            <h1>Consumo de Api: Poke API</h1>
+          </v-card-subtitle>
+          <v-divider></v-divider>
+          <v-card-text>
+            <v-row cols="12" justify="center">
+              <v-col cols="6" md="4"  v-for="pokemon in pokemons"
+              :key="pokemon.key">
+                <v-card 
+                  elevation="2"
+                  outlined height="auto"
+                  tile class="text-center justify-center"
+                >
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn :href="pokemon.url" target="_blank" icon color="red">
+                      <v-icon>➤</v-icon>
+                    </v-btn>
+                  </v-card-actions>
+                  <v-img :src="pokemon.img" aspect-ratio="2.0"
+                  contain></v-img>
+
+                  <v-card-text class="red--text">
+                    <h2 style="text-transform: capitalize;">{{pokemon.nombre}}</h2>
+                  </v-card-text>
+
+                  <v-btn
+                    absolute color="red"
+                    class="white--text"
+                    fab large left top>
+                    <h1>{{pokemon.num}}</h1>
+                  </v-btn>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-card-text>
+        </v-card>
+      </v-container>
+    </v-main>
+  </v-app>
+</div>
+<script src='https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js'></script>
+<script src='https://unpkg.com/axios/dist/axios.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
